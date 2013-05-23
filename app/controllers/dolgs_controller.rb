@@ -1,0 +1,2 @@
+class DolgsController < ApplicationController
+end

@@ -1,0 +1,44 @@
+<% provide(:title, 'Новая организация - должник') %>
+<div class="row">
+      <%= render 'menu' %>
+
+  <div class="span8">
+
+
+    <%= form_for(@agent) do |f| %>
+      <%= render 'shared/erroragent_messages' %>
+
+      <%= f.label :name, "Наименование организации" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :dogovor_number, "Номер договора" %>
+      <%= f.text_field :dogovor_number %>
+
+      <%= f.label :e_mail, "E-mail" %>
+      <%= f.text_field :e_mail %>
+
+      <%= f.label :address, "Адрес" %>
+      <%= f.text_field :address %>
+
+      <%= f.label :phone, "Телефон" %>
+      <%= f.text_field :phone %>
+
+      <%= f.label :predsedatel, "Председатель" %>
+      <%= f.text_field :predsedatel %>
+
+      <%= f.label :predsedatel_phone, "Телефон председателя" %>
+      <%= f.text_field :predsedatel_phone %>
+
+      <%= f.label :buhgalter, "Бухгалтер" %>
+      <%= f.text_field :buhgalter %>
+
+      <%= f.label :buhgalter_phone, "Телефон бухгалтера" %>
+      <%= f.text_field :buhgalter_phone %>
+
+      <%= f.submit "Создать", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+
+
+</div>
+</div>

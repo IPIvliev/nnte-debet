@@ -1,0 +1,2 @@
+class IlistsController < ApplicationController
+end

@@ -1,0 +1,19 @@
+<tr>
+<td>  <%= link_to agent.name, agent %></td>
+<td>  <%= agent.address %></td>
+<td>  <%= agent.phone %></td>
+<td>  <%= agent.predsedatel %></td>
+<td>  </td>
+  <% if current_user.admin? %>
+<td>  
+
+      <%= link_to '<i class=icon-trash></i>'.html_safe, agent, method: :delete,
+   								  :class => 'btn btn-mini',
+                                  data: { confirm: "You sure?" } %>
+
+      <%= link_to '<i class=icon-pencil></i>'.html_safe, edit_agent_path(agent), 
+   								  :class => 'btn btn-mini' %>
+
+</td>
+  <% end %>
+</tr>

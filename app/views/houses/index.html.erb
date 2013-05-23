@@ -1,0 +1,20 @@
+<% provide(:title, 'All users') %>
+<div class="row">
+      <%= render 'menu' %>
+  <div class="span8">
+
+	<%= will_paginate %>
+		<table class="table table-bordered table-striped">
+			<thead><tr><th>Улица</th><th>Номер дома</th><th>Организация</th>
+				  <% if current_user.admin? %>
+				<th>Действие</th>
+				  <% end %>
+			</tr></thead>
+			<tdoby>
+  			 <%= render @houses %>
+			</tbody>
+		</table>
+	<%= will_paginate %> 
+
+  </div>
+</div>

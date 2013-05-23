@@ -1,0 +1,2 @@
+class DelosController < ApplicationController
+end

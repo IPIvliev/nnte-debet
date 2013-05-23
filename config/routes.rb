@@ -1,5 +1,7 @@
 NnteDebet::Application.routes.draw do
   resources :users
+  resources :agents
+  resources :houses
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup',  to: 'users#new'

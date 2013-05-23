@@ -7,10 +7,22 @@
           <li><%= link_to "Главная", root_path %></li>
           <li><%= link_to "Помощь", help_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "Пользователи", users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
+                Базы данных <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Организации", agents_path %></li>
+                <li><%= link_to "Обзвон", current_user %></li>
+                <li><%= link_to "Исполнительные листы", current_user %></li>
+                <li><%= link_to "Дела в суде", edit_user_path(current_user) %></li>
+                <li><%= link_to "Дома", houses_path %></li>
+              </ul>
+            </li>
+
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= current_user.name %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Профайл", current_user %></li>

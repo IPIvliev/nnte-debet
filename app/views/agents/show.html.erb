@@ -1,0 +1,69 @@
+<% provide(:title, @agent.name) %>
+<div class="row">
+
+  <aside class="span4">
+    <section>
+
+ 			<ul class="nav nav-tabs nav-stacked">
+        	 <li><%= link_to "Все организации", agents_path %></li>
+        	 <li><%= link_to "Добавить организацию", new_agent_path %></li>
+        	</ul>
+
+    </section>
+
+
+<%= link_to 'Изменить', edit_agent_path(@agent), 
+   								  :class => 'btn btn-primary btn-warning' %>
+
+<%= link_to 'удалить', @agent, method: :delete,
+   								  :class => 'btn btn-primary btn-danger',
+                                  data: { confirm: "You sure?" } %>
+
+  </aside>
+
+
+ <div class="span8">
+      <h1> <%= @agent.name %> </h1>
+
+<strong>Координаты:</strong>
+	<div class="well well-small">
+	 <strong>Адрес:</strong>
+	 	<% if @agent.address? %>
+	 	<%= @agent.address %> 
+		 <% else %>
+	 	нет
+	 	<% end %>
+	 <strong>Телефон:</strong> <%= @agent.phone %>
+	 <strong>E-mail:</strong> <%= @agent.e_mail %>
+	</div>
+
+<strong>Обслуживаниемые дома:</strong>
+
+<strong>Сотрудники:</strong>
+	<div class="well well-small">
+	 <strong>Председатель:</strong> <%= @agent.predsedatel %> 
+	 <strong>Телефон председателя:</strong> <%= @agent.predsedatel_phone %>
+	 <strong>Бухгалтер:</strong> <%= @agent.buhgalter %>
+	 <strong>Телефон бухгалтера:</strong> <%= @agent.buhgalter_phone %>
+	</div>
+
+<strong>Договор:</strong>
+	<div class="well well-small">
+	 <%= @agent.dogovor_number %> 
+	</div>
+
+<strong>Примечание:</strong>
+	<div class="well well-small">
+	 <%= @agent.primechanie %> 
+	</div>
+
+<strong>Проплаты:</strong>
+<strong>Сумма долга:</strong>
+
+<strong>Подано исков:</strong>
+
+<strong>Предъявлено исполнительных листов:</strong>
+
+
+ </div>
+</div>

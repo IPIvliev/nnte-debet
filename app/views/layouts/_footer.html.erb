@@ -1,12 +1,15 @@
 <footer class="footer">
   <small>
-    <a href="http://railstutorial.org/">Rails Tutorial</a>
-    by Michael Hartl
+    Разработано <a href="http://infotechcom.ru">ООО "Инфоком-НН"</a>
   </small>
   <nav>
     <ul>
       <li><%= link_to "О нас",   about_path %></li>
       <li><%= link_to "Контакты", contact_path %></li>
+
+      <% if signed_in? %>
+                  <li><%= link_to "Пользователи", users_path %></li>
+      <% end %>
       <li><a href="http://news.railstutorial.org/">Новое</a></li>
     </ul>
   </nav>

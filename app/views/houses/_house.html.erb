@@ -1,0 +1,17 @@
+<tr>
+<td>  <%= house.street %></td>
+<td>  <%= house.number %></td>
+<td>  <%= @agent.name %></td>
+  <% if current_user.admin? %>
+<td>  
+
+      <%= link_to '<i class=icon-trash></i>'.html_safe, house, method: :delete,
+   								  :class => 'btn btn-mini',
+                                  data: { confirm: "You sure?" } %>
+
+      <%= link_to '<i class=icon-pencil></i>'.html_safe, edit_house_path(house), 
+   								  :class => 'btn btn-mini' %>
+
+</td>
+  <% end %>
+</tr>
