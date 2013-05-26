@@ -1,0 +1,12 @@
+<% provide(:title, 'Данные по оплатам') %>
+<div class="row">
+      <%= render 'menu' %>
+  <div class="span8">
+  	<h1>Данные по оплатам</h1>
+<div class="hero-unit">
+	<strong>Общая сумма задолженности:</strong> <%= number_to_currency(@comsum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %><br>
+	<strong>Всего оплатили за текущий месяц:</strong>	
+
+</div>
+  </div>
+</div>

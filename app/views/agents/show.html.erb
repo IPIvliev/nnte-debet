@@ -21,8 +21,12 @@
 
   </aside>
 
-
  <div class="span8">
+<ul class="breadcrumb">
+  <li><a href="#">Главная</a> <span class="divider">/</span></li>
+  <li><%= link_to "Все организации", agents_path %><span class="divider">/</span></li>
+  <li class="active"><%= @agent.name %></li>
+</ul>
       <h1> <%= @agent.name %> </h1>
 
 <strong>Координаты:</strong>
@@ -38,6 +42,13 @@
 	</div>
 
 <strong>Обслуживаниемые дома:</strong>
+	<div class="well well-small">
+	 <strong> Количество обслуживаемых домов:</strong> <%= @houses.count %><br>
+	 <strong>Адреса:</strong>
+	   <% @houses.each do |house| %>
+	   <%= house.street %>, <%= house.number %>
+	   <% end %>
+	</div>
 
 <strong>Сотрудники:</strong>
 	<div class="well well-small">
@@ -49,7 +60,9 @@
 
 <strong>Договор:</strong>
 	<div class="well well-small">
-	 <%= @agent.dogovor_number %> 
+	   <% @dogovors.each do |dogovor| %>
+	   <%= dogovor.number %>
+	   <% end %>
 	</div>
 
 <strong>Примечание:</strong>
@@ -57,8 +70,15 @@
 	 <%= @agent.primechanie %> 
 	</div>
 
-<strong>Проплаты:</strong>
 <strong>Сумма долга:</strong>
+	<div class="well well-small">
+	 <%= number_to_currency(@agent.dolgs.sum('sum'), :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %> <br>
+	   <% @agent.dolgs.each do |dolg| %>
+	   <strong>По договору №  <%= dolg.dogovor.number %>:</strong> <%= number_to_currency(dolg.sum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %><br>
+	   <% end %>
+	</div>
+
+<strong>Проплаты:</strong>
 
 <strong>Подано исков:</strong>
 

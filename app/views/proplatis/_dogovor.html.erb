@@ -1,0 +1,16 @@
+<tr>
+<td>  <%= dogovor.number %></td>
+<td>  <%= link_to dogovor.agent.name, dogovor.agent %></td>
+  <% if current_user.admin? %>
+<td>  
+
+      <%= link_to '<i class=icon-trash></i>'.html_safe, dogovor, method: :delete,
+   								  :class => 'btn btn-mini',
+                                  data: { confirm: "You sure?" } %>
+
+      <%= link_to '<i class=icon-pencil></i>'.html_safe, edit_dogovor_path(dogovor), 
+   								  :class => 'btn btn-mini' %>
+
+</td>
+  <% end %>
+</tr>

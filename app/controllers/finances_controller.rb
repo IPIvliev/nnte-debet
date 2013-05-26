@@ -1,22 +1,22 @@
-class DolgsController < ApplicationController
+class FinancesController < ApplicationController
 
   def show
     @dogovor = Dogovor.find(params[:id])
   end
 
   def index
-    @dogovors = Dogovor.paginate(page: params[:page])
+    @comsum = Dolg.sum('sum')
   end
 
   def new
-    @dolg = Dolg.new
+    @dogovor = Dogovor.new
   end
 
   def create
-    @dolg = Dolg.new(params[:dolg])
-    if @dolg.save
+    @dogovor = Dogovor.new(params[:dogovor])
+    if @dogovor.save
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to finances_url
+      redirect_to dogovors_url
     else
       render 'new'
     end

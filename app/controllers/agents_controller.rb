@@ -2,10 +2,14 @@ class AgentsController < ApplicationController
 
   def show
     @agent = Agent.find(params[:id])
+    @houses = @agent.houses
+    @dogovors = @agent.dogovors
+    @dogovor = Dogovor.all
   end
 
   def index
     @agents = Agent.paginate(page: params[:page])
+
   end
 
   def new

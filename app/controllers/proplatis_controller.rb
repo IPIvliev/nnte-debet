@@ -1,2 +1,3 @@
 class ProplatisController < ApplicationController
+
 end

@@ -3,6 +3,11 @@
       <%= render 'menu' %>
   <div class="span8">
 
+<ul class="breadcrumb">
+  <li><a href="#">Главная</a> <span class="divider">/</span></li>
+  <li class="active">Все организации</li>
+</ul>
+
 	<%= will_paginate %>
 		<table class="table table-bordered table-striped">
 			<thead><tr><th>Название</th><th>Адресс</th><th>Телефон</th><th>Председатель</th><th>Сумма долга</th>

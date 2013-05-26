@@ -3,7 +3,7 @@
 <td>  <%= agent.address %></td>
 <td>  <%= agent.phone %></td>
 <td>  <%= agent.predsedatel %></td>
-<td>  </td>
+<td>  <%= number_to_currency(agent.dolgs.sum('sum'), :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %> </td>
   <% if current_user.admin? %>
 <td>  
 

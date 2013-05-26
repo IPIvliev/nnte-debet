@@ -1,0 +1,20 @@
+<% provide(:title, 'Все договора') %>
+<div class="row">
+      <%= render 'menu' %>
+  <div class="span8">
+
+	<%= will_paginate %>
+		<table class="table table-bordered table-striped">
+			<thead><tr><th>Номер договора</th><th>Организация</th>
+				  <% if current_user.admin? %>
+				<th>Действие</th>
+				  <% end %>
+			</tr></thead>
+			<tdoby>
+  			 <%= render @dogovors %>
+			</tbody>
+		</table>
+	<%= will_paginate %> 
+
+  </div>
+</div>

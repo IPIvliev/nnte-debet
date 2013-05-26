@@ -1,0 +1,23 @@
+<% provide(:title, 'Новый договор') %>
+<div class="row">
+      <%= render 'menu' %>
+
+  <div class="span8">
+
+
+    <%= form_for(@dogovor) do |f| %>
+      <%= render 'shared/errordogovor_messages' %>
+
+      <%= f.label :number, "Номер договора" %>
+      <%= f.text_field :number %>
+
+      <%= f.label :agent_id, "Организация" %>
+      <%= f.collection_select(:agent_id, Agent.all, :id, :name, {}, {:class=> 'span'}) %>
+
+      <%= f.submit "Создать", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+
+
+</div>
+</div>

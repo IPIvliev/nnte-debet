@@ -6,7 +6,8 @@ class HousesController < ApplicationController
 
   def index
     @houses = House.paginate(page: params[:page])
-    @agent = Agent.find(2)
+  #  @house = House.find(params[:id])
+ #   @agent = house.agent
   end
 
   def new

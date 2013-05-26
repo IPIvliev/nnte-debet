@@ -1,7 +1,7 @@
 <tr>
 <td>  <%= house.street %></td>
 <td>  <%= house.number %></td>
-<td>  <%= @agent.name %></td>
+<td>  <%= link_to house.agent.name, house.agent %></td>
   <% if current_user.admin? %>
 <td>  
 
