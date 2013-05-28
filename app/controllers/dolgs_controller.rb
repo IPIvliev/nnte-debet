@@ -5,7 +5,7 @@ class DolgsController < ApplicationController
   end
 
   def index
-    @dogovors = Dogovor.paginate(page: params[:page])
+    @dolgs = Dolg.paginate(page: params[:page])
   end
 
   def new

@@ -1,4 +1,5 @@
 class AgentsController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
   def show
     @agent = Agent.find(params[:id])
@@ -8,8 +9,7 @@ class AgentsController < ApplicationController
   end
 
   def index
-    @agents = Agent.paginate(page: params[:page])
-
+@agents = Agent.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
   end
 
   def new
@@ -44,6 +44,16 @@ class AgentsController < ApplicationController
     Agent.find(params[:id]).destroy
     flash[:success] = "Agent destroyed."
     redirect_to agents_url
+  end
+
+ private
+  
+  def sort_column
+    Agent.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
 end

@@ -8,18 +8,24 @@
   <li class="active">Все организации</li>
 </ul>
 
-	<%= will_paginate %>
+<%= form_tag agents_path, :method => 'get', :id => "agents_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 		<table class="table table-bordered table-striped">
-			<thead><tr><th>Название</th><th>Адресс</th><th>Телефон</th><th>Председатель</th><th>Сумма долга</th>
+			<thead><tr><th><%= sortable "name", "Название" %></th><th>Адресс</th><th>Телефон</th><th>Сумма долга</th>
 				  <% if current_user.admin? %>
 				<th>Действие</th>
 				  <% end %>
 			</tr></thead>
 			<tdoby>
-  			 <%= render @agents %>
+
+				<%= render @agents %>
 			</tbody>
 		</table>
-	<%= will_paginate %> 
-
+<%= will_paginate @agents %>
   </div>
 </div>

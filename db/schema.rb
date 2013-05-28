@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526173439) do
+ActiveRecord::Schema.define(:version => 20130528143521) do
 
   create_table "agents", :force => true do |t|
     t.string   "name"
@@ -94,10 +94,9 @@ ActiveRecord::Schema.define(:version => 20130526173439) do
   end
 
   create_table "proplatis", :force => true do |t|
-    t.integer  "agent_id"
     t.integer  "sum"
     t.date     "date"
-    t.integer  "dolg_id"
+    t.integer  "dogovor_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

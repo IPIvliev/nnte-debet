@@ -1,21 +1,25 @@
 <% provide(:title, 'Новый договор') %>
 <div class="row">
-      <%= render 'menu' %>
+      <%= render './finances/menu' %>
 
   <div class="span8">
 
 
-    <%= form_for(@dogovor) do |f| %>
-      <%= render 'shared/errordogovor_messages' %>
+    <%= form_for(@proplati) do |f| %>
+      <%= render 'shared/errorproplati_messages' %>
 
-      <%= f.label :number, "Номер договора" %>
-      <%= f.text_field :number %>
+      <%= f.label :sum, "Оплаченная сумма" %>
+      <%= f.text_field :sum %>
 
-      <%= f.label :agent_id, "Организация" %>
-      <%= f.collection_select(:agent_id, Agent.all, :id, :name) %>
+      <%= f.label :date, "Дата оплаты" %>
+      <%= f.date_select :date %>
+
+      <%= f.label :dogovor_id, "Организация" %>
+      <%= f.collection_select(:dogovor_id, Dogovor.all, :id, :number) %>
 
       <%= f.submit "Создать", class: "btn btn-large btn-primary" %>
     <% end %>
+
 
 
 

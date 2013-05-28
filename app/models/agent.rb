@@ -4,4 +4,13 @@ class Agent < ActiveRecord::Base
   has_many :dogovors
   has_many :dolgs, :through => :dogovors
   has_many :proplatis
+
+ def self.search(search)
+  if search
+    where('name LIKE ?', "%#{search}%")
+  else
+    scoped
+  end
+ end
+
 end
