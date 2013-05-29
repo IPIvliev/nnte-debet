@@ -1,7 +1,7 @@
 <tr>
 
 <td>  <%= proplati.dogovor.number %></td>
-<td>  <%= proplati.sum %></td>
+<td>  <%= number_to_currency(proplati.sum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %></td>
 <td>  <%= proplati.date %><br>
 </td>
   <% if current_user.admin? %>

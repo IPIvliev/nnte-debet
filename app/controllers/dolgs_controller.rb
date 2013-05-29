@@ -5,7 +5,7 @@ class DolgsController < ApplicationController
   end
 
   def index
-    @dolgs = Dolg.paginate(page: params[:page])
+    @dolgs = Dolg.order("created_at").paginate(page: params[:page])
   end
 
   def new
@@ -39,7 +39,7 @@ class DolgsController < ApplicationController
   def destroy
     Dogovor.find(params[:id]).destroy
     flash[:success] = "Agent destroyed."
-    redirect_to dogovors_url
+    redirect_to dolgs_url
   end
 
 end

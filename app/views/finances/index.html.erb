@@ -4,8 +4,13 @@
   <div class="span8">
   	<h1>Данные по оплатам</h1>
 <div class="hero-unit">
-	<strong>Общая сумма задолженности:</strong> <%= number_to_currency(@comsum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %><br>
-	<strong>Всего оплатили за текущий месяц:</strong>	
+	<strong>Задолженность за всё время:</strong> 
+	<%= number_to_currency(@dolgssum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %>
+	<br>
+	<strong>Задолженность за месяц:</strong> 
+	<%= number_to_currency(@dolgsum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %>
+	<br>
+	<strong>Оплаты за месяц:</strong> <%= number_to_currency(@proplatisum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %>
 
 </div>
   </div>
