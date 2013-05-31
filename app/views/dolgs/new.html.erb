@@ -1,7 +1,6 @@
 <% provide(:title, 'Новый договор') %>
 <div class="row">
-      <%= render 'menu' %>
-
+      <%= render './finances/menu' %>
   <div class="span8">
 
 
@@ -11,7 +10,9 @@
       <%= f.label :sum, "Сумма долга" %>
       <%= f.text_field :sum %>
 
-      <%= f.label :dogovor_id, "Организация" %>
+      <%= f.hidden_field :month, :value => Time.zone.now.month %>
+
+      <%= f.label :dogovor_id, "Номер договора" %>
       <%= f.collection_select(:dogovor_id, Dogovor.all, :id, :number) %>
 
       <%= f.submit "Создать", class: "btn btn-large btn-primary" %>

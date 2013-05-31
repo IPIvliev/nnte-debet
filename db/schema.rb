@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528143521) do
+ActiveRecord::Schema.define(:version => 20130531161301) do
 
   create_table "agents", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130528143521) do
     t.integer  "agent_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.date     "date"
   end
 
   create_table "dolgs", :force => true do |t|
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20130528143521) do
     t.string   "period"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "month"
   end
 
   create_table "houses", :force => true do |t|

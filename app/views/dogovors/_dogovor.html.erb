@@ -1,6 +1,6 @@
 <tr> 
 <td>  <%= dogovor.number %></td>
-
+<td>  <%= dogovor.date %></td>
 <td> <%= link_to dogovor.agent.name, dogovor.agent %></td>
 <td> <%= number_to_currency(dogovor.dolgs.sum('sum'), :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %> </td>
   <% if current_user.admin? %>

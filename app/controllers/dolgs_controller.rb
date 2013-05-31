@@ -37,8 +37,8 @@ class DolgsController < ApplicationController
   end
 
   def destroy
-    Dogovor.find(params[:id]).destroy
-    flash[:success] = "Agent destroyed."
+    Dolg.find(params[:id]).destroy
+    flash[:success] = "Dolg destroyed."
     redirect_to dolgs_url
   end
 

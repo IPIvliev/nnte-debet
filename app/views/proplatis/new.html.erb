@@ -14,7 +14,7 @@
       <%= f.label :date, "Дата оплаты" %>
       <%= f.date_select :date %>
 
-      <%= f.label :dogovor_id, "Организация" %>
+      <%= f.label :dogovor_id, "Номер договора" %>
       <%= f.collection_select(:dogovor_id, Dogovor.all, :id, :number) %>
 
       <%= f.submit "Создать", class: "btn btn-large btn-primary" %>
