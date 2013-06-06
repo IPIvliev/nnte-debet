@@ -1,0 +1,20 @@
+<% provide(:title, 'Все дела в суде') %>
+<div class="row">
+      <%= render './courts/menu' %>
+  <div class="span8">
+
+	<%= will_paginate %>
+		<table class="table table-bordered table-striped">
+			<thead><tr><th>По договору №</th><th>Организация</th><th>Дата подачи иска</th><th>Сумма иска</th>
+				  <% if current_user.admin? %>
+				<th>Действие</th>
+				  <% end %>
+			</tr></thead>
+			<tdoby>
+  			 <%= render @delos %>
+			</tbody>
+		</table>
+	<%= will_paginate %> 
+
+  </div>
+</div>

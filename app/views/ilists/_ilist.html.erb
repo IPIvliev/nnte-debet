@@ -1,0 +1,17 @@
+<tr>
+<td>  <%= link_to dolg.dogovor.number, dolg.dogovor %></td>
+<td>  <%= number_to_currency(dolg.sum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %> </td>
+<td>  <%= Russian::strftime(dolg.created_at, "%B") %></td>
+  <% if current_user.admin? %>
+<td>  
+
+      <%= link_to '<i class=icon-trash></i>'.html_safe, dolg, method: :delete,
+   								  :class => 'btn btn-mini',
+                                  data: { confirm: "You sure?" } %>
+
+      <%= link_to '<i class=icon-pencil></i>'.html_safe, edit_dolg_path(dolg), 
+   								  :class => 'btn btn-mini' %>
+
+</td>
+  <% end %>
+</tr>

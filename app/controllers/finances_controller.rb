@@ -7,7 +7,7 @@ class FinancesController < ApplicationController
   def index
     @dolgssum = Dolg.sum('sum')
     @dolgsum = Dolg.where(:created_at => (Time.zone.now.all_month)).sum('sum')
-    @proplatisum = Proplati.where(:date => (Time.zone.now.all_month)).sum('sum')
+    @proplatisum = Proplati.where(:created_at => (Time.zone.now.all_month)).sum('sum')
   end
 
   def new

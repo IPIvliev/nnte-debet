@@ -1,0 +1,20 @@
+<% provide(:title, 'Все Исполнительные листы') %>
+<div class="row">
+      <%= render './courts/menu' %>
+  <div class="span8">
+
+	<%= will_paginate %>
+		<table class="table table-bordered table-striped">
+			<thead><tr><th>Номер договора</th><th>Сумма</th><th>Дата</th>
+				  <% if current_user.admin? %>
+				<th>Действие</th>
+				  <% end %>
+			</tr></thead>
+			<tdoby>
+  			 <%= render @ilists %>
+			</tbody>
+		</table>
+	<%= will_paginate %> 
+
+  </div>
+</div>

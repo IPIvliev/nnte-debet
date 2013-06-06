@@ -1,8 +1,13 @@
 NnteDebet::Application.routes.draw do
+  get "courts" => "courts#index"
+
   resources :users
   resources :finances
-    resources :dolgs
-        resources :proplatis
+  resources :dolgs
+  resources :proplatis
+  resources :ilists
+  resources :delos
+
 
   resources :agents
   resources :houses
