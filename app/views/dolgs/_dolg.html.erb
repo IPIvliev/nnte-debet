@@ -1,5 +1,6 @@
 <tr>
-<td>  <%= link_to dolg.dogovor.number, dolg.dogovor %></td>
+<td>  <%= link_to dolg.dogovor.agent.name, dolg.dogovor.agent %></td>
+<td>  <%= dolg.dogovor.number%></td>
 <td>  <%= number_to_currency(dolg.sum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %> </td>
 <td>  <%= Russian::strftime(dolg.created_at, "%B") %></td>
   <% if current_user.admin? %>

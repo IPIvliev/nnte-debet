@@ -3,14 +3,17 @@
       <%= render './courts/menu' %>
   <div class="span8">
 
+    <%= form_for(@delo) do |f| %>
 
-    <%= form_for(@dolg) do |f| %>
-      <%= render 'shared/errordolg_messages' %>
 
-      <%= f.label :sum, "Сумма долга" %>
+      <%= f.label :sum, "Сумма иска" %>
       <%= f.text_field :sum %>
 
-      <%= f.hidden_field :month, :value => Time.zone.now.month %>
+      <%= f.label :status, "Статус дела" %>
+      <%= f.select(:status, options_for_select([['Создан', 0], ['Отправлен в суд', 1], ['Принято к рассмотрению', 2], ['Заседание состоялось', 3], ['Получено решение суда', 4], ['Подана аппеляция', 5], ['Получен исполнительный лист', 6]])) %>
+
+      <%= f.label :isk_date, "Дата подачи иска" %>
+      <%= f.date_select :isk_date %>
 
       <%= f.label :dogovor_id, "Номер договора" %>
       <%= f.collection_select(:dogovor_id, Dogovor.all, :id, :number) %>

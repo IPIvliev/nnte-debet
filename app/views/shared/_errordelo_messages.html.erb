@@ -1,11 +1,10 @@
-
-<% if @dolg.errors.any? %>
+<% if @delo.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-error">
-      The form contains <%= pluralize(@dolg.errors.count, "error") %>.
+      The form contains <%= pluralize(@delo.errors.count, "error") %>.
     </div>
     <ul>
-    <% @dolg.errors.full_messages.each do |msg| %>
+    <% @delo.errors.full_messages.each do |msg| %>
       <li>* <%= msg %></li>
     <% end %>
     </ul>

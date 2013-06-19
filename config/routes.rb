@@ -6,7 +6,9 @@ NnteDebet::Application.routes.draw do
   resources :dolgs
   resources :proplatis
   resources :ilists
-  resources :delos
+  resources :delos do
+    put :vsud, :on => :member
+  end
 
 
   resources :agents

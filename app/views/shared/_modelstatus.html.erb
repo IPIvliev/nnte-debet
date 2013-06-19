@@ -1,0 +1,22 @@
+<% if @delo  %>
+
+	<div class="modal hide" id="modelstatus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3 id="myModalLabel">Выбрать статус дела</h3>
+</div>
+<div class="modal-body">
+  <%= delo.id %>
+<%= delo.sum %>
+<%= form_for @delo, :as => :delo, :url => delo_path(delo), :method => "put" do |f| %>
+
+ <%= f.select(:status, options_for_select([['Создан', 0], ['Отправлен в суд', 1], ['Принято к рассмотрению', 2], ['Заседание состоялось', 3], ['Получено решение суда', 4], ['Подана аппеляция', 5], ['Получен исполнительный лист', 6]])) %>
+
+</div>
+<div class="modal-footer">
+<button class="btn" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+      <%= f.submit "Создать", class: "btn btn-primary" %>
+ <% end %>
+</div>
+</div>
+<% end %>

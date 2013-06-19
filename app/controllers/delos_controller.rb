@@ -8,12 +8,25 @@ class DelosController < ApplicationController
     @delos = Delo.order("created_at").paginate(page: params[:page])
   end
 
+  def status
+    @delo = Delo.find(params[:id])
+    @delo.status = 0
+    @delo.save
+    redirect_to delos_url
+  end
+
+  def vsud
+    @delo = Delo.find(params[:id])
+    @delo.toggle!(:vsude)
+    redirect_to delos_url
+  end
+
   def new
-    @dolg = Delo.new
+    @delo = Delo.new
   end
 
   def create
-    @dolg = Delo.new(params[:delo])
+    @delo = Delo.new(params[:delo])
     if @delo.save
       flash[:success] = "Welcome to the Sample App!"
       redirect_to delos_url
@@ -28,7 +41,7 @@ class DelosController < ApplicationController
 
   def update
   	@delo = Delo.find(params[:id])
-    if @Delo.update_attributes(params[:delo])
+    if @delo.update_attributes(params[:delo])
       flash[:success] = "Profile updated"
       redirect_to delos_url
     else

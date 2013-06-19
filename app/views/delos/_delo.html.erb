@@ -1,15 +1,47 @@
 <tr>
-<td>  <%= link_to dolg.dogovor.number, dolg.dogovor %></td>
-<td>  <%= number_to_currency(dolg.sum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %> </td>
-<td>  <%= Russian::strftime(dolg.created_at, "%B") %></td>
+<td>  <%= delo.dogovor.number %></td>
+<td>  <%= link_to delo.dogovor.agent.name, delo.dogovor.agent %> </td>
+<td>  <%= Russian::strftime(delo.created_at, "%B") %></td>
+<td>  <%= number_to_currency(delo.sum, :unit => "руб.", :separator => ",", :delimiter => " ", :format => "%n %u") %></td>
+<td>  
+
+	<% if delo.vsude %>
+		<%= link_to "Да", vsud_delo_url(delo), method: :put %>
+	<% else %>
+		<%= link_to "Нет", vsud_delo_url(delo), method: :put %>
+	<% end %>
+</td>
+
+<td>   <%= delo.id %><%= link_to delo.status, vsud_delo_path(delo), data: { toggle: "modal", target: "#modelstatus" } %>
+
+  <% if delo.status = 0 %>
+<%= print "HI" %>
+<% end %>
+
+  <% if delo.status == 1 %>
+<%= print "HI" %>
+<% end %>
+
+      <%= render './shared/status' %>
+
+<%= form_for @delo, :as => :delo, :url => delo_path(delo), :method => "put" do |f| %>
+
+ <%= f.select(:status, options_for_select([['Создан', 0], ['Отправлен в суд', 1], ['Принято к рассмотрению', 2], ['Заседание состоялось', 3], ['Получено решение суда', 4], ['Подана аппеляция', 5], ['Получен исполнительный лист', 6]]), :prompt => "Обновить статус") %>
+
+      <%= f.submit "Создать", class: "btn btn-primary" %>
+       <% end %>
+
+
+      <%= render './shared/modelstatus' %>
+</td>
   <% if current_user.admin? %>
 <td>  
 
-      <%= link_to '<i class=icon-trash></i>'.html_safe, dolg, method: :delete,
+      <%= link_to '<i class=icon-trash></i>'.html_safe, delo, method: :delete,
    								  :class => 'btn btn-mini',
                                   data: { confirm: "You sure?" } %>
 
-      <%= link_to '<i class=icon-pencil></i>'.html_safe, edit_dolg_path(dolg), 
+      <%= link_to '<i class=icon-pencil></i>'.html_safe, edit_delo_path(delo), 
    								  :class => 'btn btn-mini' %>
 
 </td>

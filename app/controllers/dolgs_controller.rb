@@ -6,6 +6,7 @@ class DolgsController < ApplicationController
 
   def index
     @dolgs = Dolg.order("created_at").paginate(page: params[:page])
+
   end
 
   def new
@@ -23,14 +24,14 @@ class DolgsController < ApplicationController
   end
 
   def edit
-  	@dogovor = Dogovor.find(params[:id])
+  	@dolg = Dolg.find(params[:id])
   end
 
   def update
-  	@dogovor = Dogovor.find(params[:id])
-    if @dogovor.update_attributes(params[:dogovor])
+  	@dolg = Dolg.find(params[:id])
+    if @dolg.update_attributes(params[:dolg])
       flash[:success] = "Profile updated"
-      redirect_to houses_url
+      redirect_to dolgs_url
     else
       render 'edit'
     end

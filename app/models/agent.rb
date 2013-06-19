@@ -3,6 +3,7 @@ class Agent < ActiveRecord::Base
   has_many :houses
   has_many :dogovors, dependent: :destroy
   has_many :dolgs, :through => :dogovors
+  has_many :delos, :through => :dogovors
   has_many :proplatis
 
   validates :name, :presence => true, :uniqueness => true

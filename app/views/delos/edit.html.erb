@@ -6,17 +6,20 @@
 
   <div class="span8">
 
-    <%= form_for(@house) do |f| %>
-      <%= render 'shared/errorhouse_messages' %>
+    <%= form_for(@delo) do |f| %>
 
-      <%= f.label :street, "Улица" %>
-      <%= f.text_field :street %>
 
-      <%= f.label :number, "Номер дома" %>
-      <%= f.text_field :number %>
+      <%= f.label :sum, "Сумма иска" %>
+      <%= f.text_field :sum %>
 
-      <%= f.label :agent_id, "Организация" %>
-      <%= f.text_field :agent_id %>
+      <%= f.label :status, "Статус дела" %>
+      <%= f.select(:status, options_for_select([['Создан', 0], ['Отправлен в суд', 1], ['Принято к рассмотрению', 2], ['Заседание состоялось', 3], ['Получено решение суда', 4], ['Подана аппеляция', 5], ['Получен исполнительный лист', 6]])) %>
+
+      <%= f.label :isk_date, "Дата подачи иска" %>
+      <%= f.date_select :isk_date %>
+
+      <%= f.label :dogovor_id, "Номер договора" %>
+      <%= f.collection_select(:dogovor_id, Dogovor.all, :id, :number) %>
 
       <%= f.submit "Создать", class: "btn btn-large btn-primary" %>
     <% end %>

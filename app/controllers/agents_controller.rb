@@ -9,7 +9,7 @@ class AgentsController < ApplicationController
   end
 
   def index
-@agents = Agent.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+    @agents = Agent.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
   end
 
   def new
