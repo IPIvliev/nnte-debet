@@ -1,14 +1,20 @@
-  <aside class="span4">
-    <section>
+  <aside class="span12">
 
- 			<ul class="nav nav-tabs nav-stacked">
-        	 <li><%= link_to "Общая информация", '/courts' %></li>
+
+
+<div class="navbar">
+<div class="navbar-inner">
+<%= link_to "Судопроизводство", '/courts', class: "brand" %>
+ 			<ul class="nav">
+                <li class="divider-vertical"></li>
+
         	 <li><%= link_to "Дела в суде", delos_path %></li>
         	 <li><%= link_to "Добавить иск", new_delo_path %></li>
         	 <li><%= link_to "Исполнительные листы", ilists_path %></li>
-        	 <li><%= link_to "Добавить исполнительный лист", new_ilist_path %></li>
+        	 <li><%= link_to "Добавить ИЛ", new_ilist_path %></li>
         	</ul>
+</div>
+</div>
 
-    </section>
 
   </aside>

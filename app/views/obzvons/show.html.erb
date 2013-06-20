@@ -1,0 +1,25 @@
+<% provide(:title, @agent.name) %>
+<div class="row">
+
+      <%= render './courts/menu' %>
+
+
+ <div class="span8">
+      <h1> <%= @house.name %> </h1>
+
+<strong>Координаты:</strong>
+	<div class="well well-small">
+	 <strong>Адрес:</strong>
+	 	<% if @agent.address? %>
+	 	<%= @agent.address %> 
+		 <% else %>
+	 	нет
+	 	<% end %>
+	 <strong>Телефон:</strong> <%= @agent.phone %>
+	 <strong>E-mail:</strong> <%= @agent.e_mail %>
+	</div>
+
+
+
+ </div>
+</div>

@@ -5,4 +5,5 @@ class Delo < ActiveRecord::Base
 
   has_many :ilists, dependent: :destroy
 
+
 end

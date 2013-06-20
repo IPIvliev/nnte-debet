@@ -1,11 +1,21 @@
   <aside class="span4">
     <section>
 
- 			<ul class="nav nav-tabs nav-stacked">
+ 			<ul class="nav nav-list">
+ 			 <li class="nav-header">Организации</li>
         	 <li><%= link_to "Все организации", agents_path %></li>
         	 <li><%= link_to "Добавить организацию", new_agent_path %></li>
+        	 <li class="divider"></li>
+        	 <li class="nav-header">Дома</li>
+        	 
+        	 <li><%= link_to "Все дома", houses_path %></li>
+        	 <li><%= link_to "Добавить дом", new_house_path %></li>
+        	 <li class="divider"></li>
+        	 <li class="nav-header">Договора</li>
+        	 
+        	 <li><%= link_to "Все договора", dogovors_path %></li>
+        	 <li><%= link_to "Добавить договор", new_dogovor_path %></li>
         	</ul>
-
     </section>
 
   </aside>

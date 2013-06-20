@@ -1,3 +1,13 @@
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+        <script type="text/javascript">
+$(document).ready(function() {
+    $('.nav').children('li').each(function(index, element) {
+        var url = window.location;
+        if($(element).find('a').attr('href') == url.pathname)
+            $(element).addClass('active');
+    });
+});
+</script>

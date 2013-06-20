@@ -1,0 +1,2 @@
+class ObzvonsController < ApplicationController
+end
